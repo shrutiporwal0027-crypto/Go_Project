@@ -1,0 +1,485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+
+body {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background:
+    linear-gradient(rgba(10,15,35,0.82), rgba(10,15,35,0.90)),
+    url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    padding: 0;
+
+    color: white;
+}
+
+/* NAVBAR */
+
+nav {
+
+    background: rgba(15, 23, 55, 0.82);
+
+    backdrop-filter: blur(14px);
+
+    padding: 18px 0;
+
+    margin-bottom: 0;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    text-align: center;
+}
+
+nav a {
+
+    color: white;
+
+    margin: 0 20px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 16px;
+
+    transition: all 0.3s ease;
+
+    display: inline-block;
+
+    position: relative;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+}
+
+nav a:hover {
+
+    background: rgba(255,255,255,0.10);
+
+    color: #8ab4ff;
+
+    transform: translateY(-2px);
+}
+
+nav a::after {
+
+    content: '';
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 12px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #8ab4ff;
+
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+
+    width: calc(100% - 24px);
+}
+
+/* CONTAINER */
+
+.container {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 60px 20px;
+
+    text-align: center;
+}
+
+/* HEADINGS */
+
+h1 {
+
+    color: white;
+
+    font-size: 54px;
+
+    margin-bottom: 12px;
+
+    font-weight: 800;
+
+    background: linear-gradient(90deg,#ffffff,#8ab4ff,#d39bff);
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+
+    color: white;
+
+    font-size: 32px;
+
+    margin-top: 40px;
+
+    margin-bottom: 20px;
+
+    font-weight: 700;
+}
+
+/* PARAGRAPH */
+
+p {
+
+    color: rgba(255,255,255,0.88);
+
+    font-size: 18px;
+
+    margin: 10px 0;
+
+    line-height: 1.7;
+}
+
+/* FORM */
+
+form {
+
+    margin: 40px auto;
+
+    padding: 40px;
+
+    background: rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 24px;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    animation: slideUp 0.5s ease;
+}
+
+/* ANIMATION */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* INPUT */
+
+input {
+
+    margin: 12px 0;
+
+    padding: 16px;
+
+    width: 100%;
+
+    border-radius: 14px;
+
+    border: 2px solid rgba(255,255,255,0.08);
+
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+}
+
+input:focus {
+
+    outline: none;
+
+    border-color: #8ab4ff;
+
+    background: rgba(255,255,255,0.12);
+
+    box-shadow: 0 0 0 4px rgba(138,180,255,0.15);
+
+    transform: translateY(-2px);
+}
+
+input::placeholder {
+
+    color: rgba(255,255,255,0.45);
+}
+
+/* BUTTON */
+
+button {
+
+    background: linear-gradient(135deg, #5b86ff 0%, #a855f7 100%);
+
+    color: white;
+
+    border: none;
+
+    margin-top: 18px;
+
+    padding: 16px 28px;
+
+    width: 100%;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 10px 25px rgba(123,97,255,0.35);
+}
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 16px 35px rgba(123,97,255,0.45);
+}
+
+button:active {
+
+    transform: translateY(-1px);
+}
+
+/* SUCCESS / ERROR BOX */
+
+/* SUCCESS BOX */
+
+.success-box {
+
+    background: rgba(76,175,80,0.18);
+
+    border: 1px solid rgba(76,175,80,0.35);
+
+    color: #d4ffd9 !important;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(10px);
+
+    text-shadow: none !important;
+}
+
+/* ERROR BOX */
+
+.error-box {
+
+    background: rgba(255,82,82,0.16);
+
+    border: 1px solid rgba(255,82,82,0.30);
+
+    color: #ffd6d6 !important;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(10px);
+
+    text-shadow: none !important;
+}
+
+/* FORCE INNER TEXT COLORS */
+
+.success-box *,
+.success-box p,
+.success-box span,
+.success-box div {
+
+    color: #d4ffd9 !important;
+}
+
+.error-box *,
+.error-box p,
+.error-box span,
+.error-box div {
+
+    color: #ffd6d6 !important;
+}S
+
+/* LIST */
+
+ul {
+
+    list-style: none;
+
+    background: rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 20px;
+
+    padding: 25px 30px;
+
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    box-shadow: 0 12px 40px rgba(0,0,0,0.20);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    text-align: left;
+}
+
+li {
+
+    color: white;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 16px;
+
+    transition: all 0.3s ease;
+}
+
+li:last-child {
+
+    border-bottom: none;
+}
+
+li:hover {
+
+    padding-left: 10px;
+
+    color: #8ab4ff;
+}
+
+li::before {
+
+    content: "✓ ";
+
+    color: #8ab4ff;
+
+    font-weight: bold;
+
+    margin-right: 10px;
+}
+
+/* LINKS */
+
+a {
+
+    transition: 0.3s ease;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    h1 {
+
+        font-size: 38px;
+    }
+
+    h2 {
+
+        font-size: 24px;
+    }
+
+    nav a {
+
+        margin: 6px;
+
+        font-size: 14px;
+    }
+
+    form {
+
+        padding: 30px 20px;
+    }
+
+    .container {
+
+        padding: 35px 15px;
+    }
+   
+    
+}
+/* FORCE BOOKING CONFIRMATION TEXT COLOR */
+
+div[style*="#d4edda"],
+div[style*="#fff3cd"],
+div[style*="background: #d4edda"],
+div[style*="background: #fff3cd"] {
+
+    color: #111827 !important;
+
+    font-weight: 600 !important;
+}
+
+/* All text inside confirmation boxes */
+
+div[style*="#d4edda"] *,
+div[style*="#fff3cd"] * {
+
+    color: #111827 !important;
+
+    text-shadow: none !important;
+}
+
+/* Force paragraph visibility */
+
+.success-message,
+.confirmation-message,
+.booking-success {
+
+    color: #111827 !important;
+}
