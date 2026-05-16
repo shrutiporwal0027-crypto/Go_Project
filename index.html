@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.ConferenceName}} - Ticket Booking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:
+            linear-gradient(rgba(10,15,35,0.85), rgba(10,15,35,0.92)),
+            url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            color:white;
+            min-height:100vh;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        /* NAVBAR */
+
+        nav{
+            backdrop-filter:blur(14px);
+            background:rgba(18,25,60,0.78) !important;
+            border-bottom:1px solid rgba(255,255,255,0.1);
+            box-shadow:0 4px 20px rgba(0,0,0,0.25);
+        }
+
+        nav .container{
+            display:flex !important;
+            justify-content:center;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:15px !important;
+        }
+
+        nav a{
+            color:white !important;
+            text-decoration:none;
+            padding:12px 18px;
+            border-radius:12px;
+            transition:0.3s ease;
+            font-size:16px !important;
+            font-weight:500 !important;
+        }
+
+        nav a:hover{
+            background:rgba(255,255,255,0.12);
+            transform:translateY(-2px);
+        }
+
+        /* HERO */
+
+        h1{
+            text-align:center;
+            font-size:64px !important;
+            margin-top:80px;
+            font-weight:800;
+            background:linear-gradient(90deg,#ffffff,#8ab4ff,#d39bff);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .hero-text{
+            text-align:center;
+            color:rgba(255,255,255,0.85);
+            font-size:22px;
+            margin-bottom:40px;
+        }
+
+        /* GLASS CARDS */
+
+        .glass-card{
+            background:rgba(255,255,255,0.1) !important;
+            backdrop-filter:blur(18px);
+            border:1px solid rgba(255,255,255,0.12);
+            box-shadow:0 10px 35px rgba(0,0,0,0.25) !important;
+            transition:0.4s ease;
+            color:white;
+        }
+
+        .glass-card:hover{
+            transform:translateY(-6px);
+        }
+
+        /* SUCCESS ALERT */
+
+        .success-box{
+            background:rgba(76,175,80,0.18) !important;
+            border:1px solid rgba(76,175,80,0.4) !important;
+            backdrop-filter:blur(10px);
+        }
+
+        .cancel-box{
+            background:rgba(255,193,7,0.18) !important;
+            border:1px solid rgba(255,193,7,0.4) !important;
+            backdrop-filter:blur(10px);
+        }
+
+        /* TICKET COUNT */
+
+        .ticket-count{
+            font-size:42px !important;
+            font-weight:800 !important;
+            background:linear-gradient(90deg,#90caf9,#ce93d8);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        /* BUTTON */
+
+        .book-btn{
+            background:linear-gradient(135deg,#5b86ff,#a855f7) !important;
+            color:white !important;
+            padding:18px 45px !important;
+            border-radius:14px !important;
+            font-size:18px !important;
+            text-decoration:none;
+            display:inline-block;
+            font-weight:600;
+            box-shadow:0 10px 25px rgba(123,97,255,0.4) !important;
+            transition:0.3s ease;
+        }
+
+        .book-btn:hover{
+            transform:translateY(-4px) scale(1.02);
+        }
+
+        /* STATS */
+
+        .stats-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+            margin-top:20px;
+        }
+
+        /* EVENT DETAILS */
+
+        .event-box{
+            background:rgba(255,255,255,0.1) !important;
+            backdrop-filter:blur(18px);
+            border:1px solid rgba(255,255,255,0.15) !important;
+            color:white;
+        }
+
+        /* TICKET */
+
+        #ticketSection > div{
+            border-radius:24px !important;
+            overflow:hidden;
+        }
+
+        #ticketSection button:hover{
+            transform:translateY(-2px);
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            h1{
+                font-size:42px !important;
+            }
+
+            .hero-text{
+                font-size:18px;
+            }
+
+            nav .container{
+                justify-content:center;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav style="padding: 15px; position: sticky; top: 0; z-index: 100;">
+        <div class="container">
+
+            <a href="/">🏠 Home</a>
+            <a href="/bookings">📋 All Bookings</a>
+            <a href="/book">🎫 Book Now</a>
+            <a href="/search">🔍 Search</a>
+            <a href="/stats">📊 Stats</a>
+            <a href="/export">📥 Export</a>
+            <a href="/about">📚 About</a>
+            <a href="/schedule">⏰ Schedule</a>
+            <a href="/contact">📞 Contact</a>
+
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <h1>🎟️ {{.ConferenceName}}</h1>
+
+        <p class="hero-text">
+            Join us for an amazing conference experience!
+        </p>
+
+        <!-- SUCCESS -->
+
+        {{if .Success}}
+        <div class="success-box" style="color: #d4ffd9; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center;">
+            ✅ Booking completed successfully! Check your email for confirmation.
+        </div>
+        {{end}}
+
+        <!-- CANCEL -->
+
+        {{if .Cancelled}}
+        <div class="cancel-box" style="color: #ffeaa7; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center;">
+            ✅ Booking cancelled successfully.
+        </div>
+        {{end}}
+
+        <!-- TICKET AVAILABLE -->
+
+        <div class="glass-card" style="padding: 40px; border-radius: 20px; text-align: center; margin-bottom: 50px;">
+
+            <p class="ticket-count">
+                {{.RemainingTickets}} / {{.TotalTickets}}
+            </p>
+
+            <p style="margin-top:10px; color:rgba(255,255,255,0.8); font-size:20px;">
+                Tickets Available
+            </p>
+
+            <p style="margin-top:15px; color:rgba(255,255,255,0.7);">
+                {{.BookingCount}} bookings confirmed
+            </p>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <div style="text-align:center; margin-bottom:50px;">
+
+            <a href="/book" class="book-btn">
+                ✅ Book Your Tickets Now
+            </a>
+
+        </div>
+
+        <!-- QUICK STATS -->
+
+        <div class="glass-card" style="padding: 35px; border-radius: 20px; margin-bottom: 50px;">
+
+            <h2 style="border-bottom:2px solid rgba(255,255,255,0.15); padding-bottom:15px; margin-bottom:20px;">
+                📊 Quick Stats
+            </h2>
+
+            <div class="stats-grid">
+
+                <div style="text-align:center;">
+                    <p style="color:#d0d0d0; font-size:14px;">TOTAL BOOKINGS</p>
+                    <p style="font-size:38px; font-weight:700; color:#8ab4ff;">
+                        {{.BookingCount}}
+                    </p>
+                </div>
+
+                <div style="text-align:center;">
+                    <p style="color:#d0d0d0; font-size:14px;">TICKETS BOOKED</p>
+                    <p style="font-size:38px; font-weight:700; color:#ce93d8;">
+                        {{.BookingCount}}
+                    </p>
+                </div>
+
+                <div style="text-align:center;">
+                    <p style="color:#d0d0d0; font-size:14px;">CAPACITY USED</p>
+                    <p style="font-size:38px; font-weight:700; color:#ff8a80;">
+                        %
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- EVENT DETAILS -->
+
+        <div class="event-box" style="padding: 35px; border-radius: 20px; text-align:center; margin-bottom:40px;">
+
+            <h2 style="margin-bottom:20px;">📅 Event Details</h2>
+
+            <p style="margin:12px 0;"><strong>Date:</strong> June 15, 2026</p>
+
+            <p style="margin:12px 0;"><strong>Time:</strong> 9:00 AM - 5:00 PM</p>
+
+            <p style="margin:12px 0;"><strong>Location:</strong> Convention Center, Main Hall</p>
+
+            <p style="margin:12px 0;"><strong>Price:</strong> $99.99 per ticket</p>
+
+        </div>
+
+        <!-- HIDDEN FORM -->
+
+        <form action="/book" method="POST" id="bookingForm" style="display: none;">
+
+            <input type="text" name="firstName" placeholder="First Name" required>
+
+            <input type="text" name="lastName" placeholder="Last Name" required>
+
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <input type="number" name="tickets" min="1" max="{{.RemainingTickets}}" placeholder="Number of Tickets" required>
+
+            <button type="submit">🎟️ Book Now</button>
+
+        </form>
+
+        <!-- TICKET PREVIEW -->
+
+        <div id="ticketSection" style="display: none; margin-top: 50px;">
+
+            <div style="background: white; max-width: 500px; margin: 0 auto; box-shadow: 0 12px 40px rgba(0,0,0,0.3);">
+
+                <!-- HEADER -->
+
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 20px; text-align: center; color: white;">
+
+                    <h3 style="margin: 0; font-size: 28px;">
+                        🎫 ADMISSION TICKET
+                    </h3>
+
+                    <p style="margin-top:10px;">
+                        AI Technology Summit 2026
+                    </p>
+
+                </div>
+
+                <!-- DETAILS -->
+
+                <div style="padding: 30px; background: white; color:#333;">
+
+                    <div style="margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 20px;">
+
+                        <p style="color: #999; font-size: 12px;">
+                            <strong>ATTENDEE NAME</strong>
+                        </p>
+
+                        <p style="font-size: 20px; margin-top:5px; font-weight: bold;" id="ticketName">-</p>
+
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+
+                        <div>
+                            <p style="color: #999; font-size: 12px;">
+                                <strong>EMAIL</strong>
+                            </p>
+
+                            <p id="ticketEmail">-</p>
+                        </div>
+
+                        <div>
+                            <p style="color: #999; font-size: 12px;">
+                                <strong>TICKETS</strong>
+                            </p>
+
+                            <p style="font-weight:bold;" id="ticketCount">-</p>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+
+                        <p style="color: #999; font-size: 12px;">
+                            <strong>TICKET ID</strong>
+                        </p>
+
+                        <p style="color: #667eea; font-weight: bold; font-family: monospace;" id="ticketId">-</p>
+
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+                        <div>
+                            <p style="color: #999; font-size: 12px;">
+                                <strong>DATE</strong>
+                            </p>
+
+                            <p>2026-06-15</p>
+                        </div>
+
+                        <div>
+                            <p style="color: #999; font-size: 12px;">
+                                <strong>VENUE</strong>
+                            </p>
+
+                            <p>Convention Center</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- FOOTER -->
+
+                <div style="background: #f9f9f9; padding: 20px; text-align: center; border-top: 2px solid #e0e0e0;">
+
+                    <button onclick="printTicket()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; margin-right: 10px; transition: all 0.3s ease;">
+
+                        📥 Download PDF
+
+                    </button>
+
+                    <button onclick="closeTicket()" style="background: #e0e0e0; color: #333; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s ease;">
+
+                        Close
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+
+            e.preventDefault();
+
+            const firstName = this.querySelector('[name="firstName"]').value;
+            const lastName = this.querySelector('[name="lastName"]').value;
+            const email = this.querySelector('[name="email"]').value;
+            const tickets = this.querySelector('[name="tickets"]').value;
+
+            const ticketId = 'TKT-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+            document.getElementById('ticketName').textContent = firstName + ' ' + lastName;
+
+            document.getElementById('ticketEmail').textContent = email;
+
+            document.getElementById('ticketCount').textContent = tickets;
+
+            document.getElementById('ticketId').textContent = ticketId;
+
+            document.getElementById('ticketSection').style.display = 'block';
+
+            setTimeout(() => {
+
+                document.getElementById('ticketSection').scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }, 100);
+
+            const formData = new FormData(this);
+
+            fetch('/book', {
+                method: 'POST',
+                body: formData
+            }).catch(err => console.log('Booking saved'));
+
+        });
+
+        function closeTicket() {
+
+            document.getElementById('ticketSection').style.display = 'none';
+
+        }
+
+        function printTicket() {
+
+            const printWindow = window.open('', '', 'height=600,width=800');
+
+            printWindow.document.write('<html><head><title>Conference Ticket</title>');
+
+            printWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; }</style>');
+
+            printWindow.document.write('</head><body>');
+
+            printWindow.document.write(document.getElementById('ticketSection').innerHTML);
+
+            printWindow.document.write('</body></html>');
+
+            printWindow.document.close();
+
+            setTimeout(() => {
+
+                printWindow.print();
+
+            }, 250);
+
+        }
+
+    </script>
+
+</body>
+</html>
