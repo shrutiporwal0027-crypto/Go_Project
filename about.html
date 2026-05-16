@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Go Conference</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:
+            linear-gradient(rgba(10,15,35,0.85), rgba(10,15,35,0.92)),
+            url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            min-height:100vh;
+            color:white;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        /* NAVBAR */
+
+        nav{
+            background:rgba(18,25,60,0.78);
+            backdrop-filter:blur(14px);
+            padding:18px 0;
+            position:sticky;
+            top:0;
+            z-index:100;
+            border-bottom:1px solid rgba(255,255,255,0.1);
+            box-shadow:0 4px 20px rgba(0,0,0,0.25);
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:12px;
+            font-size:16px;
+            font-weight:500;
+            transition:0.3s ease;
+        }
+
+        nav a:hover{
+            background:rgba(255,255,255,0.12);
+            transform:translateY(-2px);
+        }
+
+        /* HERO */
+
+        h1{
+            text-align:center;
+            margin-top:90px;
+            font-size:64px;
+            font-weight:800;
+
+            background:linear-gradient(90deg,#ffffff,#8ab4ff,#d39bff);
+
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .subtitle{
+            text-align:center;
+            margin-top:18px;
+            color:rgba(255,255,255,0.8);
+            font-size:22px;
+            line-height:1.7;
+        }
+
+        /* CARD */
+
+        .about-card{
+
+            background:rgba(255,255,255,0.1);
+            backdrop-filter:blur(18px);
+
+            border:1px solid rgba(255,255,255,0.12);
+
+            border-radius:24px;
+
+            padding:50px;
+
+            margin-top:50px;
+
+            box-shadow:0 12px 40px rgba(0,0,0,0.25);
+
+            max-width:850px;
+
+            margin-left:auto;
+            margin-right:auto;
+
+            transition:0.4s ease;
+        }
+
+        .about-card:hover{
+            transform:translateY(-6px);
+        }
+
+        .about-card p{
+            font-size:18px;
+            line-height:1.9;
+            color:rgba(255,255,255,0.88);
+            margin-bottom:25px;
+        }
+
+        .highlight{
+            color:#8ab4ff;
+            font-weight:700;
+        }
+
+        /* FEATURE GRID */
+
+        .features{
+
+            display:grid;
+
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+            gap:25px;
+
+            margin-top:40px;
+        }
+
+        .feature-box{
+
+            background:rgba(255,255,255,0.08);
+
+            border:1px solid rgba(255,255,255,0.1);
+
+            border-radius:18px;
+
+            padding:25px;
+
+            text-align:center;
+
+            transition:0.3s ease;
+        }
+
+        .feature-box:hover{
+
+            background:rgba(255,255,255,0.12);
+
+            transform:translateY(-5px);
+        }
+
+        .feature-icon{
+            font-size:42px;
+            margin-bottom:15px;
+        }
+
+        .feature-title{
+            font-size:20px;
+            font-weight:600;
+            margin-bottom:10px;
+        }
+
+        .feature-desc{
+            color:rgba(255,255,255,0.72);
+            font-size:15px;
+            line-height:1.7;
+        }
+
+        /* FOOTER */
+
+        footer{
+
+            margin-top:80px;
+
+            text-align:center;
+
+            padding:30px;
+
+            color:rgba(255,255,255,0.65);
+
+            font-size:14px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            h1{
+                font-size:42px;
+                margin-top:60px;
+            }
+
+            .subtitle{
+                font-size:18px;
+            }
+
+            .about-card{
+                padding:30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="/">🏠 Home</a>
+
+        <a href="/about">📚 About</a>
+
+        <a href="/schedule">📅 Schedule</a>
+
+        <a href="/contact">📞 Contact</a>
+
+    </nav>
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <h1>📚 About Go Conference</h1>
+
+        <p class="subtitle">
+            Explore innovation, networking, and the future of technology with developers worldwide.
+        </p>
+
+        <!-- ABOUT CARD -->
+
+        <div class="about-card">
+
+            <p>
+                The Go Conference brings together
+                <span class="highlight">developers, engineers, and enthusiasts</span>
+                from around the world to share knowledge, collaborate on ideas,
+                and explore the future of Go programming and modern technologies.
+            </p>
+
+            <p>
+                Join us for inspiring keynote talks, hands-on workshops,
+                technical sessions, networking opportunities, and discussions
+                with industry leaders shaping the future of software engineering.
+            </p>
+
+            <!-- FEATURES -->
+
+            <div class="features">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">🎤</div>
+
+                    <div class="feature-title">
+                        Expert Speakers
+                    </div>
+
+                    <div class="feature-desc">
+                        Learn from top engineers and technology leaders.
+                    </div>
+
+                </div>
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">🧠</div>
+
+                    <div class="feature-title">
+                        Workshops
+                    </div>
+
+                    <div class="feature-desc">
+                        Hands-on technical sessions and live coding experiences.
+                    </div>
+
+                </div>
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">🤝</div>
+
+                    <div class="feature-title">
+                        Networking
+                    </div>
+
+                    <div class="feature-desc">
+                        Connect with developers and professionals globally.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Go Conference | Built with Go & Modern Web Technologies
+
+    </footer>
+
+</body>
+</html>

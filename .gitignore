@@ -1,0 +1,83 @@
+// .gitignore - Files to exclude from version control
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.so.*
+*.dylib
+booking-system
+*.out
+
+# Test binaries
+*.test
+
+# Output of coverage tools
+*.coverprofile
+coverage.out
+
+# Go workspace file
+go.work
+
+# Dependency directories
+vendor/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Log files
+logs/
+*.log
+
+# Generated files
+qrcodes/
+tickets/
+dist/
+build/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/workspace.xml
+
+# Binaries
+bin/
+obj/
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Kubernetes
+k8s/
+
+# Credentials (NEVER commit these!)
+*.pem
+*.key
+*.crt
+secrets.yaml
