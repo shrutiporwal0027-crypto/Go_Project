@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Go Conference</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+
+            background:
+            linear-gradient(rgba(10,15,35,0.86), rgba(10,15,35,0.92)),
+            url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            min-height:100vh;
+
+            color:white;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        /* NAVBAR */
+
+        nav{
+
+            background:rgba(18,25,60,0.78);
+
+            backdrop-filter:blur(14px);
+
+            padding:18px 0;
+
+            position:sticky;
+            top:0;
+            z-index:100;
+
+            border-bottom:1px solid rgba(255,255,255,0.1);
+
+            box-shadow:0 4px 20px rgba(0,0,0,0.25);
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        nav a{
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 20px;
+
+            border-radius:12px;
+
+            font-size:16px;
+
+            font-weight:500;
+
+            transition:0.3s ease;
+        }
+
+        nav a:hover{
+
+            background:rgba(255,255,255,0.12);
+
+            transform:translateY(-2px);
+        }
+
+        /* HERO */
+
+        h1{
+
+            text-align:center;
+
+            margin-top:90px;
+
+            font-size:64px;
+
+            font-weight:800;
+
+            background:linear-gradient(90deg,#ffffff,#8ab4ff,#d39bff);
+
+            -webkit-background-clip:text;
+
+            -webkit-text-fill-color:transparent;
+        }
+
+        .subtitle{
+
+            text-align:center;
+
+            margin-top:18px;
+
+            color:rgba(255,255,255,0.82);
+
+            font-size:22px;
+
+            line-height:1.7;
+        }
+
+        /* SCHEDULE CARD */
+
+        .schedule-card{
+
+            background:rgba(255,255,255,0.1);
+
+            backdrop-filter:blur(18px);
+
+            border:1px solid rgba(255,255,255,0.12);
+
+            border-radius:24px;
+
+            padding:45px;
+
+            margin-top:50px;
+
+            box-shadow:0 12px 40px rgba(0,0,0,0.25);
+
+            max-width:850px;
+
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        /* TIMELINE */
+
+        .timeline{
+
+            position:relative;
+
+            margin-top:20px;
+        }
+
+        .timeline::before{
+
+            content:'';
+
+            position:absolute;
+
+            left:22px;
+
+            top:0;
+
+            width:4px;
+
+            height:100%;
+
+            background:linear-gradient(#8ab4ff,#d39bff);
+        }
+
+        .timeline-item{
+
+            position:relative;
+
+            padding-left:70px;
+
+            margin-bottom:35px;
+        }
+
+        .timeline-dot{
+
+            position:absolute;
+
+            left:10px;
+
+            top:5px;
+
+            width:28px;
+
+            height:28px;
+
+            border-radius:50%;
+
+            background:linear-gradient(135deg,#5b86ff,#a855f7);
+
+            border:4px solid rgba(255,255,255,0.2);
+
+            box-shadow:0 0 20px rgba(138,180,255,0.4);
+        }
+
+        .timeline-content{
+
+            background:rgba(255,255,255,0.08);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            border-radius:18px;
+
+            padding:25px;
+
+            transition:0.3s ease;
+        }
+
+        .timeline-content:hover{
+
+            background:rgba(255,255,255,0.12);
+
+            transform:translateY(-4px);
+        }
+
+        .time{
+
+            color:#8ab4ff;
+
+            font-size:18px;
+
+            font-weight:700;
+
+            margin-bottom:10px;
+        }
+
+        .event-title{
+
+            font-size:24px;
+
+            font-weight:600;
+
+            margin-bottom:10px;
+        }
+
+        .event-desc{
+
+            color:rgba(255,255,255,0.72);
+
+            line-height:1.7;
+
+            font-size:15px;
+        }
+
+        /* FOOTER */
+
+        footer{
+
+            margin-top:80px;
+
+            text-align:center;
+
+            padding:30px;
+
+            color:rgba(255,255,255,0.65);
+
+            font-size:14px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            h1{
+                font-size:42px;
+                margin-top:60px;
+            }
+
+            .subtitle{
+                font-size:18px;
+            }
+
+            .schedule-card{
+                padding:25px;
+            }
+
+            .timeline-item{
+                padding-left:55px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="/">🏠 Home</a>
+
+        <a href="/about">📚 About</a>
+
+        <a href="/schedule">⏰ Schedule</a>
+
+        <a href="/contact">📞 Contact</a>
+
+    </nav>
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <h1>⏰ Conference Schedule</h1>
+
+        <p class="subtitle">
+            Discover keynote sessions, workshops, and networking opportunities throughout the day.
+        </p>
+
+        <!-- SCHEDULE CARD -->
+
+        <div class="schedule-card">
+
+            <div class="timeline">
+
+                <!-- ITEM 1 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="time">
+                            10:00 AM
+                        </div>
+
+                        <div class="event-title">
+                            🚀 Keynote: The Future of Go
+                        </div>
+
+                        <div class="event-desc">
+                            Explore how Go is shaping scalable systems,
+                            cloud-native applications, and modern backend engineering.
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 2 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="time">
+                            11:30 AM
+                        </div>
+
+                        <div class="event-title">
+                            🧠 Workshop: Concurrency Patterns
+                        </div>
+
+                        <div class="event-desc">
+                            Hands-on coding workshop covering goroutines,
+                            channels, synchronization, and production-ready patterns.
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 3 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="time">
+                            2:00 PM
+                        </div>
+
+                        <div class="event-title">
+                            💡 Panel: Go in Production
+                        </div>
+
+                        <div class="event-desc">
+                            Industry experts discuss real-world Go deployments,
+                            microservices, Kubernetes, and performance optimization.
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 4 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="time">
+                            4:00 PM
+                        </div>
+
+                        <div class="event-title">
+                            🤝 Networking Session
+                        </div>
+
+                        <div class="event-desc">
+                            Connect with developers, speakers, recruiters,
+                            and technology enthusiasts from around the world.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Go Conference | Learn. Build. Connect.
+
+    </footer>
+
+</body>
+</html>
