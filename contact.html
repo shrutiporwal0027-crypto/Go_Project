@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Go Conference</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+
+            background:
+            linear-gradient(rgba(10,15,35,0.86), rgba(10,15,35,0.92)),
+            url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            min-height:100vh;
+
+            color:white;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        /* NAVBAR */
+
+        nav{
+
+            background:rgba(18,25,60,0.78);
+
+            backdrop-filter:blur(14px);
+
+            padding:18px 0;
+
+            position:sticky;
+            top:0;
+            z-index:100;
+
+            border-bottom:1px solid rgba(255,255,255,0.1);
+
+            box-shadow:0 4px 20px rgba(0,0,0,0.25);
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        nav a{
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 20px;
+
+            border-radius:12px;
+
+            font-size:16px;
+
+            font-weight:500;
+
+            transition:0.3s ease;
+        }
+
+        nav a:hover{
+
+            background:rgba(255,255,255,0.12);
+
+            transform:translateY(-2px);
+        }
+
+        /* HERO */
+
+        h1{
+
+            text-align:center;
+
+            margin-top:90px;
+
+            font-size:64px;
+
+            font-weight:800;
+
+            background:linear-gradient(90deg,#ffffff,#8ab4ff,#d39bff);
+
+            -webkit-background-clip:text;
+
+            -webkit-text-fill-color:transparent;
+        }
+
+        .subtitle{
+
+            text-align:center;
+
+            margin-top:18px;
+
+            color:rgba(255,255,255,0.82);
+
+            font-size:22px;
+
+            line-height:1.7;
+        }
+
+        /* CONTACT CARD */
+
+        .contact-card{
+
+            background:rgba(255,255,255,0.1);
+
+            backdrop-filter:blur(18px);
+
+            border:1px solid rgba(255,255,255,0.12);
+
+            border-radius:24px;
+
+            padding:50px;
+
+            margin-top:50px;
+
+            box-shadow:0 12px 40px rgba(0,0,0,0.25);
+
+            max-width:700px;
+
+            margin-left:auto;
+            margin-right:auto;
+
+            transition:0.4s ease;
+        }
+
+        .contact-card:hover{
+
+            transform:translateY(-6px);
+        }
+
+        /* CONTACT ITEMS */
+
+        .contact-item{
+
+            background:rgba(255,255,255,0.08);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            border-radius:18px;
+
+            padding:25px;
+
+            margin-bottom:25px;
+
+            transition:0.3s ease;
+        }
+
+        .contact-item:hover{
+
+            background:rgba(255,255,255,0.12);
+        }
+
+        .contact-title{
+
+            font-size:20px;
+
+            font-weight:600;
+
+            margin-bottom:10px;
+
+            color:white;
+        }
+
+        .contact-value{
+
+            font-size:18px;
+
+            color:#8ab4ff;
+
+            word-break:break-word;
+        }
+
+        /* SOCIALS */
+
+        .social-section{
+
+            margin-top:40px;
+
+            text-align:center;
+        }
+
+        .social-title{
+
+            margin-bottom:20px;
+
+            font-size:22px;
+
+            font-weight:600;
+        }
+
+        .social-icons{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:20px;
+
+            flex-wrap:wrap;
+        }
+
+        .social-btn{
+
+            background:rgba(255,255,255,0.1);
+
+            border:1px solid rgba(255,255,255,0.1);
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:14px 22px;
+
+            border-radius:14px;
+
+            transition:0.3s ease;
+
+            font-weight:500;
+        }
+
+        .social-btn:hover{
+
+            background:linear-gradient(135deg,#5b86ff,#a855f7);
+
+            transform:translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer{
+
+            margin-top:80px;
+
+            text-align:center;
+
+            padding:30px;
+
+            color:rgba(255,255,255,0.65);
+
+            font-size:14px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            h1{
+                font-size:42px;
+                margin-top:60px;
+            }
+
+            .subtitle{
+                font-size:18px;
+            }
+
+            .contact-card{
+                padding:30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="/">🏠 Home</a>
+
+        <a href="/about">📚 About</a>
+
+        <a href="/schedule">📅 Schedule</a>
+
+        <a href="/contact">📞 Contact</a>
+
+    </nav>
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <h1>📞 Contact Us</h1>
+
+        <p class="subtitle">
+            We'd love to hear from you. Reach out for event details, partnerships, or support.
+        </p>
+
+        <!-- CONTACT CARD -->
+
+        <div class="contact-card">
+
+            <!-- EMAIL -->
+
+            <div class="contact-item">
+
+                <div class="contact-title">
+                    📧 Email Address
+                </div>
+
+                <div class="contact-value">
+                    info@goconf.com
+                </div>
+
+            </div>
+
+            <!-- PHONE -->
+
+            <div class="contact-item">
+
+                <div class="contact-title">
+                    📱 Phone Number
+                </div>
+
+                <div class="contact-value">
+                    +91-9587300000
+                </div>
+
+            </div>
+
+            <!-- LOCATION -->
+
+            <div class="contact-item">
+
+                <div class="contact-title">
+                    📍 Event Location
+                </div>
+
+                <div class="contact-value">
+                    Convention Center, Main Hall, Bengaluru
+                </div>
+
+            </div>
+
+            <!-- SOCIAL -->
+
+            <div class="social-section">
+
+                <div class="social-title">
+                    🌐 Follow Us
+                </div>
+
+                <div class="social-icons">
+
+                    <a href="#" class="social-btn">
+                        LinkedIn
+                    </a>
+
+                    <a href="#" class="social-btn">
+                        Twitter
+                    </a>
+
+                    <a href="#" class="social-btn">
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Go Conference | Connect. Learn. Innovate.
+
+    </footer>
+
+</body>
+</html>

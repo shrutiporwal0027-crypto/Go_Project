@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - AI Tech Summit</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+
+            background:
+            linear-gradient(rgba(10,15,35,0.86), rgba(10,15,35,0.92)),
+            url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            min-height:100vh;
+
+            color:white;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+
+        /* NAVBAR */
+
+        nav{
+
+            background:rgba(18,25,60,0.78);
+
+            backdrop-filter:blur(14px);
+
+            border-bottom:1px solid rgba(255,255,255,0.1);
+
+            box-shadow:0 4px 20px rgba(0,0,0,0.25);
+
+            padding:18px 0;
+
+            position:sticky;
+            top:0;
+            z-index:100;
+        }
+
+        nav .container{
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            flex-wrap:wrap;
+
+            gap:18px;
+        }
+
+        nav a{
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 18px;
+
+            border-radius:12px;
+
+            transition:0.3s ease;
+
+            font-size:16px;
+
+            font-weight:500;
+        }
+
+        nav a:hover{
+
+            background:rgba(255,255,255,0.12);
+
+            transform:translateY(-2px);
+        }
+
+        /* HERO */
+
+        h1{
+
+            text-align:center;
+
+            margin-top:80px;
+
+            font-size:64px;
+
+            font-weight:800;
+
+            background:linear-gradient(90deg,#ffffff,#8ab4ff,#d39bff);
+
+            -webkit-background-clip:text;
+
+            -webkit-text-fill-color:transparent;
+        }
+
+        .subtitle{
+
+            text-align:center;
+
+            margin-top:18px;
+
+            color:rgba(255,255,255,0.82);
+
+            font-size:22px;
+
+            line-height:1.7;
+
+            margin-bottom:50px;
+        }
+
+
+        /* FORM CARD */
+
+        .form-card{
+
+            background:rgba(255,255,255,0.1);
+
+            backdrop-filter:blur(18px);
+
+            border:1px solid rgba(255,255,255,0.12);
+
+            border-radius:24px;
+
+            padding:45px;
+
+            max-width:700px;
+
+            margin:auto;
+
+            box-shadow:0 12px 40px rgba(0,0,0,0.25);
+
+            transition:0.4s ease;
+        }
+
+        .form-card:hover{
+
+            transform:translateY(-5px);
+        }
+
+        /* ERROR BOX */
+
+        .error-box{
+
+            background:rgba(255,82,82,0.15);
+
+            border:1px solid rgba(255,82,82,0.35);
+
+            backdrop-filter:blur(10px);
+
+            color:#ffd4d4;
+
+            padding:18px;
+
+            border-radius:14px;
+
+            margin-bottom:25px;
+
+            line-height:1.8;
+        }
+
+        /* INPUTS */
+
+        .form-group{
+
+            margin-bottom:24px;
+        }
+
+        .form-group label{
+
+            display:block;
+
+            margin-bottom:10px;
+
+            font-weight:600;
+
+            color:white;
+
+            font-size:15px;
+        }
+
+        .form-group input{
+
+            width:100%;
+
+            padding:15px 16px;
+
+            border:2px solid rgba(255,255,255,0.08);
+
+            border-radius:14px;
+
+            background:rgba(255,255,255,0.08);
+
+            color:white;
+
+            font-size:16px;
+
+            outline:none;
+
+            transition:0.3s ease;
+        }
+
+        .form-group input::placeholder{
+
+            color:rgba(255,255,255,0.45);
+        }
+
+        .form-group input:focus{
+
+            border-color:#8ab4ff;
+
+            background:rgba(255,255,255,0.12);
+
+            box-shadow:0 0 20px rgba(138,180,255,0.18);
+        }
+
+        /* BUTTON */
+
+        .submit-btn{
+
+            width:100%;
+
+            border:none;
+
+            padding:18px;
+
+            border-radius:16px;
+
+            background:linear-gradient(135deg,#5b86ff,#a855f7);
+
+            color:white;
+
+            font-size:18px;
+
+            font-weight:700;
+
+            cursor:pointer;
+
+            transition:0.3s ease;
+
+            box-shadow:0 10px 25px rgba(123,97,255,0.35);
+        }
+
+        .submit-btn:hover{
+
+            transform:translateY(-3px);
+
+            box-shadow:0 16px 35px rgba(123,97,255,0.45);
+        }
+
+        /* BACK LINK */
+
+        .back-link{
+
+            text-align:center;
+
+            margin-top:30px;
+        }
+
+        .back-link a{
+
+            color:#8ab4ff;
+
+            text-decoration:none;
+
+            font-weight:500;
+
+            transition:0.3s ease;
+        }
+
+        .back-link a:hover{
+
+            color:white;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            h1{
+                font-size:42px;
+                margin-top:60px;
+            }
+
+            .subtitle{
+                font-size:18px;
+            }
+
+            .form-card{
+                padding:28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="container">
+
+            <a href="/">🏠 Home</a>
+
+            <a href="/bookings">📋 All Bookings</a>
+
+            <a href="/about">📚 About</a>
+
+            <a href="/schedule">⏰ Schedule</a>
+
+            <a href="/contact">📞 Contact</a>
+
+        </div>
+
+    </nav>
+
+    
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <h1>🎫 Book Your Tickets</h1>
+
+        <p class="subtitle">
+            Reserve your seat for the biggest AI & Go technology conference experience.
+        </p>
+
+
+        <div class="form-card">
+
+            {{if .Errors}}
+
+                <div class="error-box">
+
+                    <strong>Please fix the following errors:</strong>
+
+                    <ul style="margin-top:10px; padding-left:20px;">
+
+                        {{range .Errors}}
+
+                            <li>{{.}}</li>
+
+                        {{end}}
+
+                    </ul>
+
+                </div>
+
+            {{end}}
+
+            <!-- FORM -->
+
+            <form method="POST" action="/book">
+
+                <!-- FIRST NAME -->
+
+                <div class="form-group">
+
+                    <label for="firstName">
+                        First Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        required
+                        placeholder="John"
+                    >
+
+                </div>
+
+                <!-- LAST NAME -->
+
+                <div class="form-group">
+
+                    <label for="lastName">
+                        Last Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        required
+                        placeholder="Doe"
+                    >
+
+                </div>
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="john@example.com"
+                    >
+
+                </div>
+
+                <!-- TICKETS -->
+
+                <div class="form-group">
+
+                    <label for="tickets">
+                        Number of Tickets (1-20) *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="tickets"
+                        name="tickets"
+                        required
+                        min="1"
+                        max="20"
+                        placeholder="2"
+                    >
+
+                </div>
+
+                <!-- BUTTON -->
+
+                <button type="submit" class="submit-btn">
+
+                    ✅ Complete Booking
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- BACK -->
+
+        <div class="back-link">
+
+            <a href="/">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
